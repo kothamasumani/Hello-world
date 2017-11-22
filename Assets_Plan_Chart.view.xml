@@ -1,0 +1,123 @@
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartChart="sap.ui.comp.smartchart"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="PLANA.UI.WebContent.controllers.Analytics.Accounts.Assets_Plan_Chart"
+	height="100%">
+	<!-- use this to make the table occupy the available screen height -->
+	<!-- <Button id="toggleVariantMangement" text="Enable Variant Management" 
+		press="toggleVariantManagement"></Button> <Button id="toggleChartType" text="Toggle 
+		ChartType display" press="toggleButtonList"></Button> <Button id="toggleDetailsButton" 
+		text="Toggle Details Button" press="toggleDetailsButton"></Button> <Button 
+		id="toggleBreadcrumbs" text="Toggle Drill Breadcrumbs" press="toggleDrillBreadcrumbs"></Button> -->
+	
+	<Page showHeader= "true" title= "Balance Sheet Plan Value">
+	<!--  <ObjectHeader title= "Balance Sheet Plan Value" responsive= "true">
+	</ObjectHeader>-->
+	<content>
+		<VBox
+		fitContainer="true"
+		id="withoutVariant">
+		<smartFilterBar:SmartFilterBar
+			id="smartFilterBar"
+			entityType="Assets_PlanType" showFilterConfiguration="false">
+			<smartFilterBar:controlConfiguration>
+				<smartFilterBar:ControlConfiguration
+					key="Accounts"
+					index="2"
+					visible="true"
+					controlType="dropDownList"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					 </smartFilterBar:ControlConfiguration>
+					 <smartFilterBar:ControlConfiguration
+					key="YEAR"
+					index="4"
+					visible="true"
+					controlType="dropDownList"
+					filterType="single"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					<smartFilterBar:defaultFilterValues>
+							<smartFilterBar:SelectOption low="2016">
+							</smartFilterBar:SelectOption>
+						</smartFilterBar:defaultFilterValues>
+					 </smartFilterBar:ControlConfiguration>
+					 <smartFilterBar:ControlConfiguration
+					key="Company"
+					index="1"
+					visible="true"
+					controlType="dropDownList"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					<smartFilterBar:defaultFilterValues>
+							<smartFilterBar:SelectOption low="1000(Infiniti TechLabs LLP IN)">
+							</smartFilterBar:SelectOption>
+						</smartFilterBar:defaultFilterValues>
+					</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration
+					key="MONTH"
+					index="5"
+					visible="true"
+					controlType="dropDownList"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					<smartFilterBar:defaultFilterValues>
+							<smartFilterBar:SelectOption low="PERIOD01">
+							</smartFilterBar:SelectOption>
+							</smartFilterBar:defaultFilterValues>
+					</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration
+					key="High_Level_Statement_Group"
+					index="3"
+					visible="true"
+					controlType="dropDownList"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					 </smartFilterBar:ControlConfiguration>
+					 <smartFilterBar:ControlConfiguration
+					key="PlanVersion"
+					index="6"
+					visible="true"
+					controlType="dropDownList"
+					mandatory="notMandatory"
+					hasValueHelpDialog="false"
+					groupId="_BASIC">
+					 </smartFilterBar:ControlConfiguration>
+			</smartFilterBar:controlConfiguration>
+			<!-- layout data used to make the table growing but the filter bar fixed -->
+			<smartFilterBar:layoutData>
+				<FlexItemData shrinkFactor="0" />
+			</smartFilterBar:layoutData>
+		</smartFilterBar:SmartFilterBar>
+		
+			<smartChart:SmartChart
+				id="ItemsSmartChart2"
+				entitySet="Assets_Plan"
+				useVariantManagement="false"
+				smartFilterId="smartFilterBar"
+				useChartPersonalisation="false"
+				showFullScreenButton="true"
+				enableAutoBinding="true"
+				showDetailsButton="false"
+				showDrillBreadcrumbs="false"
+				showDownloadButton="true"
+				>
+				<smartChart:layoutData>
+					<FlexItemData growFactor="1" />
+				</smartChart:layoutData>
+			</smartChart:SmartChart>
+			
+		
+	</VBox>
+</content>
+</Page>
+</core:View>
